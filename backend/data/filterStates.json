@@ -1,0 +1,42 @@
+{
+  "53": {
+    "dataMask": {},
+    "savedAt": "2026-06-05T08:04:43.020Z"
+  },
+  "55": {
+    "dataMask": {
+      "NATIVE_FILTER-AkzCEn5TDOtCtSl117fBO": {
+        "id": "NATIVE_FILTER-AkzCEn5TDOtCtSl117fBO",
+        "extraFormData": {
+          "filters": [
+            {
+              "col": "sWaiterName",
+              "op": "IN",
+              "val": [
+                "Laura c."
+              ]
+            }
+          ]
+        },
+        "filterState": {
+          "value": [
+            "Laura c."
+          ]
+        }
+      }
+    },
+    "savedAt": "2026-06-05T08:57:01.922Z"
+  },
+  "55:4cosite_000415_it": {
+    "dataMask": {
+      "permalink_key": "Zw5X4VJPNk3"
+    },
+    "savedAt": "2026-06-18T08:54:21.407Z"
+  },
+  "53:4cosite_000415_it": {
+    "dataMask": {
+      "permalink_key": "mozPnMKl4r6"
+    },
+    "savedAt": "2026-06-18T09:24:10.868Z"
+  }
+}

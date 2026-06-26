@@ -1,0 +1,38 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    image: superseyt-backend:latest
+    container_name: superseyt-backend
+    restart: unless-stopped
+    environment:
+      PORT: "5000"
+      SUPERSET_URL: ${SUPERSET_URL}
+      SUPERSET_ADMIN_USER: ${SUPERSET_ADMIN_USER}
+      SUPERSET_ADMIN_PASSWORD: ${SUPERSET_ADMIN_PASSWORD}
+      EMBED_TRINO_SERVER: ${EMBED_TRINO_SERVER:-server_x}
+      EMBED_USER_DB: ${EMBED_USER_DB:-4cosite_000415_it}
+    volumes:
+      - backend_data:/app/data
+    ports:
+      - "5000:5000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  frontend:
+    build:
+      context: ./frontend/dashboard
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+        NEXT_PUBLIC_SUPERSET_URL: ${NEXT_PUBLIC_SUPERSET_URL}
+        NEXT_PUBLIC_USER_ID: ${NEXT_PUBLIC_USER_ID:-4cosite_000415_it}
+    image: superseyt-frontend:latest
+    container_name: superseyt-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+volumes:
+  backend_data:

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  trino:
+    image: trinodb/trino:latest
+    container_name: trino
+    ports:
+      - "8080:8080"
+    volumes:
+      - C:/Users/marco/code/test_superseyt/trino/catalog:/etc/trino/catalog
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

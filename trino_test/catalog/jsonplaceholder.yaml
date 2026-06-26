@@ -1,0 +1,33 @@
+openapi: '3.0.2'
+info:
+  title: JSONPlaceholder
+  version: '1.0'
+servers:
+  - url: https://jsonplaceholder.typicode.com
+paths:
+  /posts:
+    get:
+      description: Get postscd frot
+      operationId: list-posts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/post'
+components:
+  schemas:
+    post:
+      type: object
+      properties:
+        userId:
+          type: integer
+        id:
+          type: integer
+        title:
+          type: string
+        body:
+          type: string
